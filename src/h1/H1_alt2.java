@@ -1,6 +1,6 @@
 package h1;
 
-public class H1_main {
+public class H1_alt2 {
 
 	public static void main(String[] args) {
 		double guthaben = 200.0;
