@@ -1,6 +1,6 @@
 package h2;
 
-public class H2_main {
+public class H2_alt2 {
 
 	public static void main(String[] args) {
 		int Jahr = 2016;
