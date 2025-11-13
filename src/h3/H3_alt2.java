@@ -1,6 +1,6 @@
 package h3;
 
-public class H3_main {
+public class H3_alt2 {
 
 	public static void main(String[] args) {
 		int max = 80;
