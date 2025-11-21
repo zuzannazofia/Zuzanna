@@ -3,44 +3,46 @@ package h2;
 public class H2_main {
 
 	public static void main(String[] args) {
-		boolean x;
-		boolean y;
-		boolean a;
-		boolean b;
-		boolean c;
-		int input = 10;
-		
-		if (input == 11 || input == 10) {
-		    x = true;
-		    
-		} else {
-			x = false;
-			
-		}
-		if (input == 11 || input == 1) {
-			y = true;
-			
-		} else {
-			y = false;
-			
-		}
-		
-		boolean E1 = x;
-		boolean E2 = y;
-		boolean E3 = (x != y);
+		int n = 299;      // hier kannst du andere Zahlen testen
+        int digits = 0;
 
-		a = (E1 && E2);
-		
-		b = (E1 || E3);
-		
-		c = !y;
-		
-		System.out.println("input: " + input);
-		System.out.println("x: " + x);
-		System.out.println("y: " + y);
-		System.out.println("a: " + a);
-		System.out.println("b: " + b);
-		System.out.println("c: " + c);
-	}
+  
+        int[] a = new int[9];
 
+       
+        int temp = n;
+
+        if (temp == 0) {
+            digits = 1;
+        } else {
+            while (temp > 0) {
+                digits++;
+                temp = temp / 10;
+            }
+        }
+
+       
+        temp = n;
+        int index = a.length - 1;   // letzte Stelle im Array (rechts)
+
+        while (index >= 0 && temp > 0) {
+            a[index] = temp % 10;   // letzte Ziffer
+            temp = temp / 10;       // Ziffer „abschneiden“
+            index--;                // nach links gehen
+        }
+
+        // ---- Kontrolle: Ausgabe ----
+        System.out.println("n = " + n);
+        System.out.println("digits = " + digits);
+
+        System.out.print("Array a: ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
+    }
 }
+
+	
+
+
