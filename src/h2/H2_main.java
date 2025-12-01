@@ -3,46 +3,31 @@ package h2;
 public class H2_main {
 
 	public static void main(String[] args) {
-		int n = 299;      // hier kannst du andere Zahlen testen
-        int digits = 0;
-
-  
-        int[] a = new int[9];
-
-       
-        int temp = n;
-
-        if (temp == 0) {
-            digits = 1;
-        } else {
-            while (temp > 0) {
-                digits++;
-                temp = temp / 10;
-            }
-        }
-
-       
-        temp = n;
-        int index = a.length - 1;   // letzte Stelle im Array (rechts)
-
-        while (index >= 0 && temp > 0) {
-            a[index] = temp % 10;   // letzte Ziffer
-            temp = temp / 10;       // Ziffer „abschneiden“
-            index--;                // nach links gehen
-        }
-
-        // ---- Kontrolle: Ausgabe ----
-        System.out.println("n = " + n);
-        System.out.println("digits = " + digits);
-
-        System.out.print("Array a: ");
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
-        System.out.println();
-    }
-}
-
+		int[] a = {1,2,3};
+		int[] b = {1,2,4};
+		int[] c = {1,3,2};
+		int[] d = {1,2};
+		int[] e = {1,2,3};
+		
+		
+		System.out.println(compareArrays(a,b));
+		System.out.println(compareArrays(a,c));
+		System.out.println(compareArrays(a,d));
+		System.out.println(compareArrays(a,e));
+		System.out.println(compareArrays(e,a));
+		
 	
+}
+	public static boolean compareArrays(int[] a, int[] b) {
+		if (a.length != b.length) {
+			return false;
+		}
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] !=b[i]) {
+				return false;
+	}
 
-
+}
+return true;
+}
+}
