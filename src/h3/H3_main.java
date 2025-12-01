@@ -3,39 +3,53 @@ package h3;
 public class H3_main {
 
 	public static void main(String[] args) {
-		int input = 6279; 
-
-	       
-        int[][] einheiten = {
-                {50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1},
-                {    0,     0,     0,    0,    0,    0,   0,   0,   0,  0,  0,  0, 0, 0, 0}
-        };
-
-        int rest = input;
-
-       
-        for (int i = 0; i < einheiten[0].length; i++) {
-            int wert = einheiten[0][i];   // z.B. 5000, 2000, 1000, ...
-            int anzahl = rest / wert;     // wie oft passt dieser Wert rein?
-            einheiten[1][i] = anzahl;     // in zweite Zeile eintragen
-            rest = rest % wert;           // Restbetrag übrig lassen
-        }
-
-        // Ausgabe
-        System.out.println("Betrag (input): " + input + " Cent");
-
-        System.out.print("Werte:      ");
-        for (int i = 0; i < einheiten[0].length; i++) {
-            System.out.print(einheiten[0][i] + " ");
-        }
-        System.out.println();
-
-        System.out.print("Stückzahl:  ");
-        for (int i = 0; i < einheiten[1].length; i++) {
-            System.out.print(einheiten[1][i] + " ");
-        }
-        System.out.println();
-
+		int[] a = {1,2,3};
+		int[] b = {1,2,4};
+		int[] c = {1,3,2};
+		int[] d = {1,2};
+		int[] e = {1,2,3};
+		int[] f = {1,1,2};
+		
+		System.out.println(compareArrays(a,b));
+		System.out.println(compareArrays(a,c));
+		System.out.println(compareArrays(a,d));
+		System.out.println(compareArrays(a,e));
+		System.out.println(compareArrays(a,f));
+		System.out.println(compareArrays(c,e));
+		
+	  }
+	
+	public static boolean compareArrays(int[] a, int[] b) {
+		if (a.length != b.length) {
+			return false;
+		}
+		
+		for (int i = 0; i < a.length; i++) {
+			int value =a[i];
+			int countA = 0;
+			int countB = 0;
+			
+			for (int j = 0; j < a.length; j++) {
+				if (a[j]== value) {
+					countA++;
+				}
+			}
+			
+			for (int j = 0; j < b.length; j++) {
+				if (b[j] == value) {
+					countB++;
+				}
+			}
+				if (countA != countB) {
+					return false;
+				}
+		}
+			
+		return true ;
+		}
+		
 	}
 
-}
+	
+
+
