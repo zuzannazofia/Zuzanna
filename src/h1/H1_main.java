@@ -3,32 +3,24 @@ package h1;
 public class H1_main {
 
 	public static void main(String[] args) {
-		int[] myArray = {5, 6, 7, 10} ;
+		int[] a = {1,2,3,4};
+		int[] b = {4,3,2,1};
 		
-		int[] reversed = new int[myArray.length];
-		for (int i = 0; i < myArray.length; i++) {
-			  reversed[i] = myArray[myArray.length - 1 - i];
-        }
-
-       System.out.print("Vorher: ");
-       for (int i = 0; i <myArray.length; i++) {
-    	   System.out.print(myArray[i] + " ");
-    	   
-       }
- System.out.print("Nachher: ");
- for (int i = 0; i < reversed.length; i++) {
-	 System.out.print(reversed[i] + " ");
- }
-		System.out.println();
-			
-		
-		
-		
-		
-		
-		
-		
-
+		boolean result = isMirrorArray (a,b);
+		System.out.println(result);
 	}
+		public static boolean isMirrorArray(int[] a, int[] b) {
+			if (a.length != b.length) {
+				return false;
+				
+			}
 
+			for (int i = 0; i < a.length; i++) {
+				if (a[i] !=b[b.length -1 -i]) {
+					return false;
+					
+				}
+			}
+return true;
+}
 }
