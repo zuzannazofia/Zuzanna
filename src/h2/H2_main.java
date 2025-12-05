@@ -1,33 +1,33 @@
 package h2;
 
+import java.util.Arrays;
+
 public class H2_main {
 
 	public static void main(String[] args) {
-		int[] a = {1,2,3};
-		int[] b = {1,2,4};
-		int[] c = {1,3,2};
-		int[] d = {1,2};
-		int[] e = {1,2,3};
-		
-		
-		System.out.println(compareArrays(a,b));
-		System.out.println(compareArrays(a,c));
-		System.out.println(compareArrays(a,d));
-		System.out.println(compareArrays(a,e));
-		System.out.println(compareArrays(e,a));
-		
 	
-}
-	public static boolean compareArrays(int[] a, int[] b) {
-		if (a.length != b.length) {
-			return false;
+		int[] r1 = change(new int[] {2,7,1,9}, new int[] {5,6,7}, 2, 4);
+		System.out.println(Arrays.toString(r1));
+		
+		int[] r2 = change(new int[] {2,7,1,9}, new int[] {2,7,1,9}, 2, 4);
+		System.out.println(Arrays.toString(r2));
+		
+		int[] r3 = change(new int[] {2,7,1,9}, new int[] {2,7,1,9}, 3, 2);
+		System.out.println(Arrays.toString(r3));
+	}
+	
+	public  static int[] change(int[] a, int[] b, int start, int end) {
+		
+		if (end <= start) {
+			return new int[0];
 		}
-		for (int i = 0; i < a.length; i++) {
-			if (a[i] !=b[i]) {
-				return false;
+	
+		if (Arrays.compare(a, b) !=0) {
+			return Arrays.copyOfRange(a, 0, a.length);
+		}
+
+		Arrays.sort(a);
+		return Arrays.copyOfRange(a, start, end);
 	}
 
-}
-return true;
-}
 }
