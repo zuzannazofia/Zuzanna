@@ -3,19 +3,26 @@ package h1;
 public class H1_main {
 
 	public static void main(String[] args) {
-		Zahl z = new Zahl();
 		
-		z.num =80;
+		Bruch b1 = new Bruch(25,5);
+		b1.shorten();
+		System.out.println(b1);
 		
-		z.setEven();
-		z.setPositive();
-		z.setSmall();
+		Bruch b2 = new Bruch(8,12);
+		b2.shorten();
+		System.out.println(b2);
 		
-		System.out.println("num= " + z.num);
-		System.out.println("num= " +z.even);
-		System.out.println("num= " +z.positive);
-		System.out.println("num= " +z.small);
+		Bruch b3 = new Bruch(4,3);
+		b3.shorten();
+		System.out.println(b3);
 		
+		Bruch c1 = new Bruch(5,3);
+		Bruch c2 = new Bruch(15,9);
+		System.out.println(c1.hasSameValueAs(c2));
+		
+		
+		
+				
 
 	}
 
