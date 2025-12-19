@@ -1,37 +1,43 @@
 package h2;
 
+import java.util.ArrayList;
+
 public class H2_main {
 
-	public static void main(String[] args) {
-	   
-		SimpleList myList = new SimpleList();
+    public static void main(String[] args) {
 
-        myList.append(12);
-        myList.append(45);
-        myList.append(66);
-        myList.append(12);
-        myList.append(45);
-        myList.append(60);
+        Bus busA = new Bus();
+        Bus busB = new Bus();
 
-        System.out.println("nach append:     " + myList);
+        Passenger anna = new Passenger("Anna", 3, true);
+        Passenger ben = new Passenger("Ben", 2, true);
+        Passenger clara = new Passenger("Clara", 2, false);
 
-        myList.insertAfter(45, 4);
-        System.out.println("nach insertAfter(45,4): " + myList);
+        busA.enterBus(anna);
+        busA.enterBus(ben);
+        busA.enterBus(clara);
 
-        Node first45 = myList.findFirst(45);
-        if (first45 != null) {
-            System.out.println("findFirst(45):   " + first45.value);
-        }
+        System.out.println("Bus A: " + busA);
+        System.out.println("Bus B: " + busB);
 
-        myList.delete(45);
-        System.out.println("nach delete(45): " + myList);
+        busA.nextStop();
+        busA.nextStop();
 
-        Node first = myList.getFirst();
-        Node last = myList.getLast();
-        System.out.println("getFirst():      " + (first == null ? "null" : first.value));
-        System.out.println("getLast():       " + (last == null ? "null" : last.value));
+        System.out.println("Bus A nach zwei Stops: " + busA);
 
+        String[] transferNames = { "Anna", "Clara" };
+        busA.transferPassengers(busB, transferNames);
 
-	}
+        System.out.println("Bus A nach Transfer: " + busA);
+        System.out.println("Bus B nach Transfer: " + busB);
 
+        ArrayList<Passenger> noTicket = busB.findPassengersWithoutTickets();
+        System.out.println("Ohne Ticket entfernt: " + noTicket);
+        System.out.println("Bus B final: " + busB);
+    }
 }
+		
+
+	
+
+

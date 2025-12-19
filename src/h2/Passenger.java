@@ -1,0 +1,22 @@
+package h2;
+
+public class Passenger {
+
+	String name;
+    int planned;
+    int visited;
+    boolean ticket;
+
+    public Passenger(String name, int planned, boolean ticket) {
+        this.name = name;
+        this.planned = planned;
+        this.ticket = ticket;
+        this.visited = 0;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (planned=" + planned + ", visited=" + visited + ", ticket=" + ticket + ")";
+    }
+}
+
