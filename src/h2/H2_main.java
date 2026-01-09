@@ -1,42 +1,31 @@
 package h2;
 
-import java.util.ArrayList;
-
 public class H2_main {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		  Spielbrett b = new Spielbrett(3);
 
-        Bus busA = new Bus();
-        Bus busB = new Bus();
+	 
+	        Feld[][] a = b.getBrett();
+	        a[0][0] = new Feld(false, 'L');
+	        a[0][1] = new Feld(true,  'R');
+	        a[0][2] = new Feld(false, 'L');
 
-        Passenger anna = new Passenger("Anna", 3, true);
-        Passenger ben = new Passenger("Ben", 2, true);
-        Passenger clara = new Passenger("Clara", 2, false);
+	        a[1][0] = new Feld(false, 'L');
+	        a[1][1] = new Feld(true,  'R');
+	        a[1][2] = new Feld(false, 'U');
 
-        busA.enterBus(anna);
-        busA.enterBus(ben);
-        busA.enterBus(clara);
+	        a[2][0] = new Feld(false, 'L');
+	        a[2][1] = new Feld(false, 'U');
+	        a[2][2] = new Feld(false, 'U');
 
-        System.out.println("Bus A: " + busA);
-        System.out.println("Bus B: " + busB);
+	        Spielstein s = new Spielstein(b, 2, 2);
 
-        busA.nextStop();
-        busA.nextStop();
-
-        System.out.println("Bus A nach zwei Stops: " + busA);
-
-        String[] transferNames = { "Anna", "Clara" };
-        busA.transferPassengers(busB, transferNames);
-
-        System.out.println("Bus A nach Transfer: " + busA);
-        System.out.println("Bus B nach Transfer: " + busB);
-
-        ArrayList<Passenger> noTicket = busB.findPassengersWithoutTickets();
-        System.out.println("Ohne Ticket entfernt: " + noTicket);
-        System.out.println("Bus B final: " + busB);
-    }
-}
-		
+	        System.out.println("Start: (" + s.getCurrentRow() + "," + s.getCurrentCol() + ")");
+	        s.go(7);
+	        System.out.println("Ende:  (" + s.getCurrentRow() + "," + s.getCurrentCol() + ")");
+	    }
+	}
 
 	
 
