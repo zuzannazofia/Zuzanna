@@ -3,28 +3,30 @@ package h1;
 public class H1_main {
 
 	public static void main(String[] args) {
-	    PrioListe liste = new PrioListe();
+		 Cell[] start = new Cell[] {
+		            new Cell(0, 4),
+		            new Cell(1, 1),
+		            new Cell(2, 2),
+		            new Cell(2, 3),
+		            new Cell(3, 1),
+		            new Cell(3, 2)
+		        };
 
-        Patient A = new Patient("A", 1);
-        Patient B = new Patient("B", 10);
-        Patient C = new Patient("C", 5);
-        Patient D = new Patient("D", 7);
+		        Grid g = new Grid(start, 4, 5);
+		        g.computeGeneration(2);
 
-        liste.addPatient(A);
-        liste.addPatient(C);
-        liste.addPatient(B);
-        liste.addPatient(D);
+		     
+		    }
 
-        System.out.println("Reihenfolge in myList nach addPatient:");
-        System.out.println("Position A: " + liste.getPosition(A));
-        System.out.println("Position C: " + liste.getPosition(C));
-        System.out.println("Position D: " + liste.getPosition(D));
-        System.out.println("Position B: " + liste.getPosition(B));
+		
+		    private static void printGrid(Cell[][] a) {
+		        for (Cell[] row : a) {
+		            for (Cell cell : row) {
+		                System.out.print(cell.isAlive() ? "1 " : "0 ");
+		            }
+		            System.out.println();
+		        }
 
-        System.out.println("Naechster Patient: " + liste.getNextPatient());
-        System.out.println("Naechster Patient: " + liste.getNextPatient());
-    }
+	}
+
 }
-	
-
-
