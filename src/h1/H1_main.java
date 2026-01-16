@@ -3,30 +3,23 @@ package h1;
 public class H1_main {
 
 	public static void main(String[] args) {
-		 Cell[] start = new Cell[] {
-		            new Cell(0, 4),
-		            new Cell(1, 1),
-		            new Cell(2, 2),
-		            new Cell(2, 3),
-		            new Cell(3, 1),
-		            new Cell(3, 2)
-		        };
-
-		        Grid g = new Grid(start, 4, 5);
-		        g.computeGeneration(2);
-
-		     
-		    }
-
-		
-		    private static void printGrid(Cell[][] a) {
-		        for (Cell[] row : a) {
-		            for (Cell cell : row) {
-		                System.out.print(cell.isAlive() ? "1 " : "0 ");
-		            }
-		            System.out.println();
-		        }
-
+	Node e = new Node(null);
+	Node d = new Node(e);
+	Node c = new Node(d);
+	Node b = new Node(c);
+	Node a = new Node(b);
+	
+	System.out.println("distance(a, a) = " + distance(a, a));
+	System.out.println("distance(a, b) = " + distance(a, b));
+	System.out.println("distance(a, d) = " + distance(a, d));
+	System.out.println("distance(c, e) = " + distance(c, e));
+	}
+	
+	public static int distance(Node x, Node y) {
+		if (x == y) {
+			return 0;
+		}
+return 1 + distance(x.getNext(), y);
 	}
 
 }
